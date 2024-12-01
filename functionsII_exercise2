@@ -1,0 +1,18 @@
+des=function(x) {
+  
+  if ( (is.numeric(x)==F | is.vector(x)==F) & ( anyNA(x)==F | length(x)>1  ) ) {
+    stop( "Invalid input!")}
+  
+  if ( anyNA(x)==T) { warning("The vector contains NA value(s)")} 
+  
+  results=matrix(NA,1,4)
+  colnames(results)=c("mean", "var", "min", "max")
+  
+  results[1,1]=mean(x, na.rm = T)
+  results[1,2]=var(x, na.rm = T)
+  results[1,3]=min(x, na.rm = T)
+  results[1,4]=max(x, na.rm = T)
+  
+  return(results)
+  
+}
